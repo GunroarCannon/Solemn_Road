@@ -1,0 +1,157 @@
+[gd_scene load_steps=21 format=4 uid="uid://dvdwvsl007scg"]
+
+[ext_resource type="PackedScene" uid="uid://cyxdexqmowyvh" path="res://addons/Addon Assets/Weapon Models/AmmunitionBox/ammobox_low.glb" id="1_i6qwp"]
+[ext_resource type="Script" uid="uid://bdhrf5uhv2oda" path="res://ammo_box.gd" id="1_ykikw"]
+[ext_resource type="Script" uid="uid://ch7ub075i8c42" path="res://Player_Controller/scripts/Weapon_State_Machine/WeaponSlot.gd" id="2_im632"]
+[ext_resource type="FontFile" uid="uid://u6kboufq8uty" path="res://assets/fonts/28 Days Later.ttf" id="2_ka0k6"]
+[ext_resource type="Script" uid="uid://dsjx68h7ad64v" path="res://ammo_container_area.gd" id="3_ejg6q"]
+[ext_resource type="Resource" uid="uid://cd8msvjysh2uv" path="res://Player_Controller/scripts/Weapon_State_Machine/Weapon_Resources/blasterM.tres" id="3_hjywi"]
+[ext_resource type="Texture2D" uid="uid://bmtfpopnvm35f" path="res://addons/Addon Assets/Weapon Models/AmmunitionBox/ammobox_low_ammoboxmat_color.png" id="5_7x36n"]
+[ext_resource type="Texture2D" uid="uid://bcas30smn5n67" path="res://addons/Addon Assets/Weapon Models/AmmunitionBox/ammobox_low_ammoboxmat_normal.png" id="6_dojo7"]
+[ext_resource type="Script" uid="uid://didj56d251v1j" path="res://addons/smash_the_mesh/stm_cached_instance.gd" id="6_oepxg"]
+
+[sub_resource type="Resource" id="Resource_ydb7l"]
+script = ExtResource("2_im632")
+weapon = ExtResource("3_hjywi")
+current_ammo = 5
+reserve_ammo = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yflgf"]
+size = Vector3(0.441772, 0.527344, 0.512085)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_braqt"]
+size = Vector3(0.215439, 0.114868, 0.128326)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tevbr"]
+resource_name = "ammoboxmat"
+cull_mode = 2
+albedo_texture = ExtResource("5_7x36n")
+normal_enabled = true
+normal_texture = ExtResource("6_dojo7")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jlnbe"]
+_surfaces = [{
+"aabb": AABB(-0.108033, -0.0551217, -0.0551217, 0.216066, 0.110243, 0.110243),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AgABAAAADwAHAAUACwADAAAACAABAAIACgACAAMACQAAAAEACAAEAAUACgAGAAQACwAHAAYACQAFAAcADQAMAA4ADAAEAAYADgAGAAcADQAFAAQAAgAAAAMADwAFAA0ACwAAAAkACAACAAoACgADAAsACQABAAgACAAFAAkACgAEAAgACwAGAAoACQAHAAsADQAOAA8ADAAGAA4ADgAHAA8ADQAEAAwA"),
+"name": "ammoboxmat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAAAAAAAAAP//AAAAAAAA//8AAP//AACMBf//PAkAAIwF///C9gAAcvr//zwJAABy+v//wvYAAAAA//8AAAAAAAD/////AAD/////AAAAAP///////wAAjAVPGzwJAACMBU8bwvYAAHL6Txs8CQAAcvpPG8L2AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dbrf3"]
+resource_name = "ammobox_low_Cube_108"
+_surfaces = [{
+"aabb": AABB(-0.108033, -0.0551217, -0.0551217, 0.216066, 0.110243, 0.110243),
+"attribute_data": PackedByteArray("l9H//jJw//6kwPEUIWG9ajif//6q7/EUS729ajif1aLDgAQ1l9HVojJw1aLDgP4FpMB8nyFjEDrx1GOk/wAYOCFjsWXx1ATQpMBRR0y7EDry/l3TKlkYOEy7sWXy/v/+IWHDmSFhXjiq7/hDkaL//iFhZGekwPhDS73DmUu9XjjKrwQ1kaLVoku9ZGfKr/4Fpup8n/8Acjvy/mOk/wAWDv8AE2fy/gTQpupRRypZcjvx1F3TKlkWDipZE2fx1P/+"),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("BwAEAAEALQAVAA8AIQAJAAAAGAADAAYAIAAIAAsAHQACAAUAGQANABAAHwATAA0AIgAWABMAHAAQABYAKAAlACsAJAAMABIALAAUABcAKQARAA4ABwABAAoALQAPACcAIQAAABsAGAAGAB4AIAALACMAHQAFABoAGQAQABwAHwANABkAIgATAB8AHAAWACIAKAArAC4AJAASACoALAAXAC8AKQAOACYA"),
+"material": SubResource("StandardMaterial3D_tevbr"),
+"name": "ammoboxmat",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAA//9U1QAAAAD/////AAAAAAAA//8AAAAAAABU1QAAAAAAAP////8AAAAA/////wAAAABU1f//AAAAAFTV//8AAP///7///wAA//9U1f//AAD//1TVjAX//zwJ/7+MBf//PAn/v4wF//88CVTVjAX//8L2//+MBf//wvb/v4wF///C9lTVcvr//zwJ/79y+v//PAn/v3L6//88CVTVcvr//8L2//9y+v//wvb/v3L6///C9lTVAAD//wAA//8AAP//AAD/vwAA//8AAP//AAD//////78AAP//////vwAA/////////////wAA////////AAD/v/////8AAFTV/////////7//////////v////////1TVjAVPGzwJ/7+MBU8bPAn/v4wFTxs8CVTVjAVPG8L2//+MBU8bwvb/v4wFTxvC9lTVcvpPGzwJ/79y+k8bPAn/v3L6Txs8CVTVcvpPG8L2//9y+k8bwvb/v3L6TxvC9lTV/3//f1RVVFX/P/9/////f1RVVFX/P/9/////f1RVVFWqKqoq/3//f1RVVFWqKqoq/3//f/7//3+qqlRV////f/7//3+qqlRV/3//f/7//39U1VTV////f/7//39U1VTV////f/7//3//P/9//3//f/7//3//P/9/////f/7//3+qKqoq/3//f/7//3+qKqoq/3//f////3+qqlRV////f////3+qqlRV/3//f////39U1VTV////f////39U1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jlnbe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_is4m1"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y5xxt"]
+particle_flag_rotate_y = true
+angular_velocity_min = -13.05
+angular_velocity_max = 720.0
+linear_accel_min = -50.55
+linear_accel_max = 22.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cm1ti"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ppq0n"]
+material = SubResource("StandardMaterial3D_cm1ti")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jolyr"]
+
+[node name="AmmoBox" type="RigidBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+script = ExtResource("1_ykikw")
+weapon = SubResource("Resource_ydb7l")
+
+[node name="ammobox_low2" parent="." instance=ExtResource("1_i6qwp")]
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+visible = false
+light_color = Color(0.2, 1, 1, 1)
+light_energy = 11.794
+light_volumetric_fog_energy = 2.397
+sky_mode = 1
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.176273, 0)
+layers = 33
+pixel_size = 0.0025
+text = "Melee to get ammo"
+font = ExtResource("2_ka0k6")
+font_size = 24
+outline_size = 2
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("3_ejg6q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0495007, 0.192115, 0.0111122)
+shape = SubResource("BoxShape3D_yflgf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00429535, 0.0109959, 0.000932395)
+shape = SubResource("BoxShape3D_braqt")
+
+[node name="STMMesh1" type="MeshInstance3D" parent="."]
+layers = 47
+mesh = SubResource("ArrayMesh_dbrf3")
+script = ExtResource("6_oepxg")
+cache_read = false
+cache_name = "2886134217406"
+original_mesh = SubResource("ArrayMesh_dbrf3")
+chunk_inner_material = SubResource("StandardMaterial3D_is4m1")
+chunk_count = Vector3i(6, 6, 6)
+chunk_noise_factor = Vector3(1, 1, 1)
+phys_shape = 4
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+visible = false
+process_material = SubResource("ParticleProcessMaterial_y5xxt")
+draw_pass_1 = SubResource("BoxMesh_ppq0n")
+
+[node name="STMMesh2" type="MeshInstance3D" parent="."]
+layers = 37
+script = ExtResource("6_oepxg")
+cache_name = "3188660976750"
+chunk_inner_material = SubResource("StandardMaterial3D_jolyr")
+chunk_count = Vector3i(6, 6, 6)
+chunk_vertices_threshold = 0
+chunk_random_sampling = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.853587, 3.73115e-08)
+visible = false
+light_color = Color(0.362689, 0.936597, 0.900225, 1)
+light_energy = 16.0
+light_indirect_energy = 10.0
+light_volumetric_fog_energy = 10.0
+light_cull_mask = 170
+spot_angle = 12.1494
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.389313, 0)
+light_color = Color(0.398688, 0.708172, 0.974518, 1)
+light_energy = 16.0
+light_indirect_energy = 1.77
+omni_range = 1.79328

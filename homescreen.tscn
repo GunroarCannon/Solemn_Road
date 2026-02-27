@@ -1,0 +1,214 @@
+[gd_scene load_steps=21 format=3 uid="uid://dbxiswhtxxen"]
+
+[ext_resource type="Script" uid="uid://dwws6bxpefp71" path="res://homescreen.gd" id="1_pmscm"]
+[ext_resource type="Texture2D" uid="uid://cso7n2i0xsp1n" path="res://assets/ui/road_blue.png" id="2_2ndhf"]
+[ext_resource type="FontFile" uid="uid://u6kboufq8uty" path="res://assets/fonts/28 Days Later.ttf" id="2_dcgqi"]
+[ext_resource type="Theme" uid="uid://cdpsmjkdj4uwc" path="res://button_theme.tres" id="3_7sqvc"]
+[ext_resource type="Shader" uid="uid://dvb5nlp8joeym" path="res://homescreen.gdshader" id="4_6mgwd"]
+[ext_resource type="Texture2D" uid="uid://yh0h7ow1ysim" path="res://assets/icons/guns/skoll/winchester-rifle.png" id="4_wddu2"]
+[ext_resource type="Texture2D" uid="uid://dcov8es6a55ye" path="res://assets/icons/hands/generalace135/fingers-crossed.png" id="5_ovd6q"]
+[ext_resource type="Texture2D" uid="uid://ro75txk84nc" path="res://assets/icons/test-tube-held.png" id="6_is2dy"]
+[ext_resource type="Texture2D" uid="uid://dckjdjomvjf03" path="res://assets/icons/hands/skoll/fist.png" id="7_1fqvw"]
+[ext_resource type="Texture2D" uid="uid://cjj8ahxcl5lyd" path="res://assets/icons/shoes/quoting/lost-limb.png" id="7_ysk6m"]
+[ext_resource type="Script" uid="uid://vcp1r1nauj5j" path="res://addons/splash_screen_wizard/splash_screen.gd" id="10_s81up"]
+[ext_resource type="Script" uid="uid://sfmi7s6lfso3" path="res://addons/splash_screen_wizard/splash_screen_slide.gd" id="11_vj2bc"]
+[ext_resource type="Script" uid="uid://cj1wjratdudap" path="res://addons/splash_screen_wizard/transitions/slide_transition_fade.gd" id="12_ipeug"]
+[ext_resource type="Script" uid="uid://4ojwctdijgpb" path="res://slide_transition_zoom.gd" id="13_hggv4"]
+[ext_resource type="Texture2D" uid="uid://dsrbi44fth1fu" path="res://assets/ui/hmmm_logo.png" id="13_kgrkq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_csqad"]
+font = ExtResource("2_dcgqi")
+font_size = 160
+font_color = Color(0.64, 0.1472, 0.19648, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.65098)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qv6wo"]
+shader = ExtResource("4_6mgwd")
+shader_parameter/slant_amount = 0.5
+
+[sub_resource type="Resource" id="Resource_onmqp"]
+script = ExtResource("12_ipeug")
+fade_type = 0
+duration = 1.3
+transition_type = 4
+
+[sub_resource type="Resource" id="Resource_f6ryt"]
+script = ExtResource("13_hggv4")
+fade_type = 0
+duration = 0.5
+transition_type = 0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yfsy3"]
+diffuse_texture = ExtResource("13_kgrkq")
+
+[node name="Homescreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pmscm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -672.0
+offset_top = -384.0
+offset_right = 672.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2ndhf")
+expand_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="Panel/MarginContainer2"]
+layout_mode = 2
+text = "SOLemn
+Road"
+label_settings = SubResource("LabelSettings_csqad")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -260.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer"]
+material = SubResource("ShaderMaterial_qv6wo")
+layout_mode = 2
+
+[node name="Play" type="Button" parent="Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_7sqvc")
+text = "Play"
+icon = ExtResource("4_wddu2")
+alignment = 0
+expand_icon = true
+
+[node name="ConnectWallet" type="Button" parent="Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_7sqvc")
+text = "connect wallet"
+icon = ExtResource("5_ovd6q")
+alignment = 0
+expand_icon = true
+
+[node name="About" type="Button" parent="Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_7sqvc")
+text = "ABOUT"
+icon = ExtResource("6_is2dy")
+alignment = 0
+expand_icon = true
+
+[node name="Leaderboard" type="Button" parent="Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_7sqvc")
+text = "Leaderboard
+"
+icon = ExtResource("7_1fqvw")
+alignment = 0
+expand_icon = true
+
+[node name="Exit" type="Button" parent="Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_7sqvc")
+text = "Exit"
+icon = ExtResource("7_ysk6m")
+alignment = 0
+expand_icon = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SplashScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_s81up")
+
+[node name="SplashScreenSlide" type="Control" parent="SplashScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_vj2bc")
+transition_in = SubResource("Resource_onmqp")
+transition_out = SubResource("Resource_f6ryt")
+continue_after_duration = false
+skippable = true
+
+[node name="ColorRect" type="ColorRect" parent="SplashScreen/SplashScreenSlide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="SplashScreen/SplashScreenSlide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="SplashScreen/SplashScreenSlide/MarginContainer"]
+layout_mode = 2
+texture = SubResource("CanvasTexture_yfsy3")
+expand_mode = 3
+stretch_mode = 4
+
+[connection signal="button_up" from="Panel/MarginContainer/VBoxContainer2/Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="Panel/MarginContainer/VBoxContainer2/ConnectWallet" to="." method="_on_connect_wallet_button_up"]
+[connection signal="button_up" from="Panel/MarginContainer/VBoxContainer2/About" to="." method="_on_about_button_up"]
+[connection signal="button_up" from="Panel/MarginContainer/VBoxContainer2/Leaderboard" to="." method="_on_leaderboard_button_up"]
+[connection signal="button_up" from="Panel/MarginContainer/VBoxContainer2/Exit" to="." method="_on_exit_button_up"]

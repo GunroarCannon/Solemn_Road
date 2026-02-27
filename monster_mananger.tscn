@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://baqu053plrkp3"]
+
+[ext_resource type="PackedScene" uid="uid://c3qqjk43apry1" path="res://assets/monsters/terror_engine_-_decayed.glb" id="2_otlgg"]
+
+[sub_resource type="Resource" id="Resource_35uf8"]
+metadata/__load_path__ = "res://assets/monsters/crow.glb"
+
+[node name="MonsterMananger" type="Node3D"]
+
+[node name="clayman" parent="." instance=ExtResource("2_otlgg")]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="crow" parent="Node3D"]
+transform = Transform3D(1.65, 0, 0, 0, 1.65, 0, 0, 0, 1.65, 0, 100, 0)

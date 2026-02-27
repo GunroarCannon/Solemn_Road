@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://fsj8n5dltomb"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_3fgvh"]
+[ext_resource type="Texture2D" uid="uid://b22g0hm5ci5f3" path="res://assets/icons/radioactive.png" id="1_byk06"]
+
+[resource]
+script = ExtResource("1_3fgvh")
+name = "Radioactive flashlight"
+description = "Torch's light deals some damage."
+icon = ExtResource("1_byk06")
+set_key = ""
+set_value = false
+add_key = "flashlight_damage"
+add_value = 3.0

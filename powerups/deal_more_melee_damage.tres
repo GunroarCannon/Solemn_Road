@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://dg8nmxxbgdfh5"]
+
+[ext_resource type="Texture2D" uid="uid://bcgemt3o6u1s4" path="res://assets/icons/hands/lorc/mailed-fist.png" id="1_kwg8i"]
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_oh4io"]
+
+[resource]
+script = ExtResource("1_oh4io")
+name = "Iron FIsts"
+description = "Melee attacks deal more damage."
+icon = ExtResource("1_kwg8i")
+set_key = ""
+set_value = false
+add_key = "melee_damage_multiplier"
+add_value = 1.0

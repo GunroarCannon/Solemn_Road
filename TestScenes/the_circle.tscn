@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b05kqna6o6fcq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8xipy"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="Gradient" id="Gradient_lhql2"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 0.435294, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1wcxc"]
+gradient = SubResource("Gradient_lhql2")
+fill = 1
+fill_from = Vector2(0.025641, 0.017094)
+fill_to = Vector2(0, 0)
+repeat = 2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xipy"]
+radius = 5.0
+
+[node name="TheCircle" type="MeshInstance2D"]
+mesh = SubResource("SphereMesh_8xipy")
+texture = SubResource("GradientTexture2D_1wcxc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_8xipy")

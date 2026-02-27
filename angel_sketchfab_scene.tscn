@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq7qbij6in4a4"]
+
+[ext_resource type="PackedScene" uid="uid://dlxhqat16oxtv" path="res://assets/monsters/statue/angel_brass_version.glb" id="1_ephle"]
+[ext_resource type="ArrayMesh" uid="uid://bs3knyysnl6ba" path="res://angel.tres" id="2_lw0op"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_ephle")]
+
+[node name="SilverAngel_LP_Unwrap#1_0" parent="Sketchfab_model/910deab8cae547a9ab0d8a21aa7f42e1_fbx/RootNode/SilverAngel_LP/Object_4" index="0"]
+mesh = ExtResource("2_lw0op")

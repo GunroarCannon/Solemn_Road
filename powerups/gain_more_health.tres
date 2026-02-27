@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://bhdg4g7uxa2yo"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_rp7tx"]
+[ext_resource type="Texture2D" uid="uid://ro75txk84nc" path="res://assets/icons/test-tube-held.png" id="1_wy76s"]
+
+[resource]
+script = ExtResource("1_rp7tx")
+name = "Tube of Health"
+description = "Gain more health."
+icon = ExtResource("1_wy76s")
+set_key = ""
+set_value = false
+add_key = "health"
+add_value = 10.0

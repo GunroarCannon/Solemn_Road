@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://okrdistd70vs"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_63h6j"]
+[ext_resource type="Texture2D" uid="uid://ccpqakdv7w8re" path="res://assets/icons/hands/lorc/smoking-finger.png" id="1_ou202"]
+
+[resource]
+script = ExtResource("1_63h6j")
+name = "Quick Fingers"
+description = "Quicker gun reload time."
+icon = ExtResource("1_ou202")
+set_key = ""
+set_value = false
+add_key = "gun_reload_time_multiplier"
+add_value = 0.5

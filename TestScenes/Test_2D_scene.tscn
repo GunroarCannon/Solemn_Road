@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=3 uid="uid://djmrj1joo7oj2"]
+
+[ext_resource type="Script" uid="uid://cgx1cg4iev0gy" path="res://addons/spawner/spawner_2d/spawner_2d.gd" id="1_5xw38"]
+[ext_resource type="PackedScene" uid="uid://b05kqna6o6fcq" path="res://TestScenes/the_circle.tscn" id="2_dpnvd"]
+[ext_resource type="Script" uid="uid://b3yj53klb4y0r" path="res://addons/spawner/wave.gd" id="2_fieck"]
+[ext_resource type="PackedScene" uid="uid://c5ifsjwpi17hf" path="res://TestScenes/the_square.tscn" id="3_fieck"]
+[ext_resource type="Script" uid="uid://cuios3yw8uwwr" path="res://addons/spawner/wave_entry.gd" id="3_w02py"]
+
+[sub_resource type="Resource" id="Resource_ugio2"]
+script = ExtResource("3_w02py")
+packed_scene = ExtResource("2_dpnvd")
+number_of_instances = 3
+metadata/_custom_type_script = "uid://cuios3yw8uwwr"
+
+[sub_resource type="Resource" id="Resource_di1cd"]
+script = ExtResource("3_w02py")
+packed_scene = ExtResource("3_fieck")
+number_of_instances = 1
+metadata/_custom_type_script = "uid://cuios3yw8uwwr"
+
+[sub_resource type="Resource" id="Resource_iep5u"]
+script = ExtResource("2_fieck")
+wave_entries = Array[ExtResource("3_w02py")]([SubResource("Resource_ugio2"), SubResource("Resource_di1cd")])
+wave_name = "Test Wave"
+delay_before_next_wave = 5.0
+metadata/_custom_type_script = "uid://b3yj53klb4y0r"
+
+[sub_resource type="Resource" id="Resource_fieck"]
+script = ExtResource("3_w02py")
+packed_scene = ExtResource("3_fieck")
+number_of_instances = 5
+metadata/_custom_type_script = "uid://cuios3yw8uwwr"
+
+[sub_resource type="Resource" id="Resource_w02py"]
+script = ExtResource("3_w02py")
+packed_scene = ExtResource("2_dpnvd")
+number_of_instances = 3
+metadata/_custom_type_script = "uid://cuios3yw8uwwr"
+
+[sub_resource type="Resource" id="Resource_0o7ur"]
+script = ExtResource("2_fieck")
+wave_entries = Array[ExtResource("3_w02py")]([SubResource("Resource_fieck"), SubResource("Resource_w02py")])
+wave_name = "Second wave"
+delay_before_next_wave = 0.0
+metadata/_custom_type_script = "uid://b3yj53klb4y0r"
+
+[sub_resource type="QuadMesh" id="QuadMesh_5xw38"]
+size = Vector2(1920, 1080)
+
+[sub_resource type="Gradient" id="Gradient_5xw38"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dpnvd"]
+gradient = SubResource("Gradient_5xw38")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Spawner2D" type="Marker2D" parent="."]
+gizmo_extents = 5.0
+script = ExtResource("1_5xw38")
+waves = Array[ExtResource("2_fieck")]([SubResource("Resource_iep5u"), SubResource("Resource_0o7ur")])
+spawn_on_load = true
+use_marker_as_parent = true
+spawn_type = "Wave"
+spawn_interval = 2.0
+metadata/_custom_type_script = "uid://cgx1cg4iev0gy"
+
+[node name="Marker2D" type="Marker2D" parent="Spawner2D"]
+position = Vector2(-454, -243)
+
+[node name="Marker2D2" type="Marker2D" parent="Spawner2D"]
+position = Vector2(-275, -241)
+
+[node name="Marker2D3" type="Marker2D" parent="Spawner2D"]
+position = Vector2(-154, -241)
+
+[node name="Marker2D4" type="Marker2D" parent="Spawner2D"]
+position = Vector2(-15, -241)
+
+[node name="Marker2D5" type="Marker2D" parent="Spawner2D"]
+position = Vector2(105, -241)
+
+[node name="Marker2D6" type="Marker2D" parent="Spawner2D"]
+position = Vector2(226, -246)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+z_index = -7
+position = Vector2(-4.29153e-06, -1.43051e-06)
+scale = Vector2(0.6, 0.6)
+mesh = SubResource("QuadMesh_5xw38")
+texture = SubResource("GradientTexture2D_dpnvd")

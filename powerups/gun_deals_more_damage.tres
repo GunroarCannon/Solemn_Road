@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://tqkalukx1lh4"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_0qeo6"]
+[ext_resource type="Texture2D" uid="uid://dun4jpnjhqtsy" path="res://assets/icons/fire/lorc/fire-ray.png" id="1_jiv6y"]
+
+[resource]
+script = ExtResource("1_0qeo6")
+name = "Unhinged Bullets"
+description = "Gun shots deal more damage."
+icon = ExtResource("1_jiv6y")
+set_key = ""
+set_value = false
+add_key = "gun_damage_multiplier"
+add_value = 2.0

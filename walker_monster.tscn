@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://c63sdekvleguw"]
+
+[ext_resource type="Script" uid="uid://cuv510tksudko" path="res://walker_monster.gd" id="1_plnay"]
+[ext_resource type="PackedScene" uid="uid://bdn4qvaaoo8sa" path="res://walker.tscn" id="2_stmhv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qyrk7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpvf6"]
+size = Vector3(2, 2, 1.5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_46sv8"]
+radius = 0.45
+height = 2.8674
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3t0i8"]
+height = 0.11
+radius = 0.65
+
+[node name="Walker_Monster" type="CharacterBody3D" groups=["Target"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_plnay")
+
+[node name="PatrolRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.499592, 0.866261, 0, -0.866261, 0.499592, 0, 2.29033, 0)
+target_position = Vector3(0, -11, 0)
+collision_mask = 3
+debug_shape_custom_color = Color(0.882353, 0.0627451, 0.909804, 1)
+debug_shape_thickness = 5
+
+[node name="crawler" type="Node3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2.19368, 0)
+
+[node name="Area3D" type="Area3D" parent="crawler"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.94611, 5.5227)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crawler/Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -1.37905, 0.966104)
+shape = SubResource("SphereShape3D_qyrk7")
+
+[node name="MeleeBox" type="ShapeCast3D" parent="crawler"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.191269, -2.236, 5.97565)
+shape = SubResource("BoxShape3D_mpvf6")
+collision_mask = 3
+
+[node name="body" parent="crawler" instance=ExtResource("2_stmhv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.498875, -15.5915, 1.97133)
+
+[node name="BodyCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.13014, 0.119833)
+shape = SubResource("CapsuleShape3D_46sv8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0266083, 0.572258, 0.153624)
+shape = SubResource("CylinderShape3D_3t0i8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.499592, 0.866261, 0, -0.866261, 0.499592, 0.118477, 5.14354, -0.00682563)
+visible = false
+light_color = Color(0.88, 0.4136, 0.352, 1)
+light_energy = 10.0
+light_indirect_energy = 2.896
+light_volumetric_fog_energy = 1.08
+
+[node name="Bod" type="Node3D" parent="."]
+
+[connection signal="body_entered" from="crawler/Area3D" to="." method="_on_area_3d_body_entered"]

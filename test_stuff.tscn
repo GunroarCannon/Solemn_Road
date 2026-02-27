@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdnto486n0nut"]
+
+[ext_resource type="PackedScene" uid="uid://oc13h3au02ro" path="res://Player_Controller/Spawnable_Objects/player_character.tscn" id="1_75j8f"]
+[ext_resource type="Script" uid="uid://61qs5hpstads" path="res://onstart.gd" id="1_155y6"]
+[ext_resource type="PackedScene" uid="uid://b1m7khk6ue1wn" path="res://angel_follower_statue.tscn" id="2_4kgos"]
+[ext_resource type="PackedScene" uid="uid://b7eob1wke8lu5" path="res://subview.tscn" id="3_80l5g"]
+[ext_resource type="PackedScene" uid="uid://c63sdekvleguw" path="res://walker_monster.tscn" id="5_wofkm"]
+[ext_resource type="PackedScene" uid="uid://bwrjrla6hr2ld" path="res://spawner_mesh.tscn" id="6_few8i"]
+[ext_resource type="PackedScene" uid="uid://dvdwvsl007scg" path="res://ammo_box.tscn" id="7_3ynam"]
+[ext_resource type="PackedScene" uid="uid://6m6lb7hfkj1f" path="res://mutant_monster.tscn" id="8_e4032"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_drvff"]
+vertices = PackedVector3Array(-91.6224, -2.14452, -53.1253, -91.6224, -2.14452, 35.1247, 31.1276, -2.14452, 35.1247, 31.1276, -2.14452, -53.1253, -2.62242, 3.35548, 11.1247, -2.62242, 3.35548, 14.6247, 0.377579, 3.35548, 14.6247, 0.377579, 3.35548, 11.1247)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5)]
+geometry_parsed_geometry_type = 1
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_155y6")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52912, -2.54325, -11.2962)
+navigation_mesh = SubResource("NavigationMesh_drvff")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.26264, 2.54325, 8.96091)
+use_collision = true
+size = Vector3(25.7688, 1, 23.1117)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2724, -3.14452, -9.012)
+use_collision = true
+size = Vector3(123.7, 1, 89.2265)
+
+[node name="Angel_Follower_Statue" parent="." instance=ExtResource("2_4kgos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.12823, 1.14399, 0.691826)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, -8, 0, 0)
+visible = false
+
+[node name="Player_Character" parent="." instance=ExtResource("1_75j8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.805752, 0, 2.84065)
+
+[node name="Node3D" parent="." instance=ExtResource("3_80l5g")]
+transform = Transform3D(0.999988, 0.00495671, 0, -0.00495671, 0.999988, 0, 0, 0, 1, 1.39875, 2.60389, 0.215122)
+
+[node name="Walker_Monster" parent="." instance=ExtResource("5_wofkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45694, 1.6413, -3)
+
+[node name="SpawnerMesh" parent="." instance=ExtResource("6_few8i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.40276, -3.67634, -14.289)
+spawn_level = 10
+spawn_table = {
+"crawlers": {
+"animations": [],
+"creature_name": "res://crawler_monster.tscn",
+"formation": "circle",
+"level": 2,
+"max": 20,
+"min": 4,
+"weight": 40
+},
+"gaurds": {
+"animations": [],
+"creature_name": "res://angel_follower_statue.tscn",
+"formation": "guard",
+"level": 2,
+"weight": 10
+}
+}
+
+[node name="AmmoBox" parent="." instance=ExtResource("7_3ynam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18468, 1.19419, 1.48656)
+
+[node name="Mutant" parent="." instance=ExtResource("8_e4032")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.81086, -5.18777, -10.4336)

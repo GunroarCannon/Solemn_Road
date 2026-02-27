@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://vc5oyipjhmkn"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_4e5dv"]
+[ext_resource type="Texture2D" uid="uid://bs5bbl62eyasr" path="res://assets/icons/guns/quoting/field-gun.png" id="1_6mjqu"]
+
+[resource]
+script = ExtResource("1_4e5dv")
+name = "Anti-Air"
+description = "Deal more damage while you're in the air."
+icon = ExtResource("1_6mjqu")
+set_key = ""
+set_value = false
+add_key = "damage_in_air_multiplier"
+add_value = 1.0

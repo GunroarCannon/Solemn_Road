@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn6xfwyecypf1"]
+
+[ext_resource type="Texture2D" uid="uid://ch8hdmdi4w1xh" path="res://assets/mobile-ui/Sprint_icon.png" id="1_f7i5y"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_fytwt"]
+[ext_resource type="Texture2D" uid="uid://3tab1dsqxm3w" path="res://assets/icons/guns/lorc/reticule.png" id="2_rw16y"]
+[ext_resource type="Texture2D" uid="uid://guuga5lwkupd" path="res://assets/mobile-ui/Hand_icon.png" id="3_am1q2"]
+[ext_resource type="Texture2D" uid="uid://ydrtyo3dn1p3" path="res://assets/icons/shoes/lorc/wingfoot.png" id="4_jm75u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_esvrl"]
+
+[node name="TouchControls" type="Control"]
+modulate = Color(0.46, 0.1426, 0.1426, 1)
+self_modulate = Color(1, 1, 1, 0.662745)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = 22.0
+offset_right = -15.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.74, 0.1184, 0.1184, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasModulate"]
+
+[node name="Virtual Joystick" parent="CanvasModulate/CanvasLayer" instance=ExtResource("1_fytwt")]
+modulate = Color(0.534368, 0.0844572, 0.144619, 1)
+self_modulate = Color(0.76, 0, 0.101333, 0.658824)
+
+[node name="Control" type="Control" parent="CanvasModulate/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasModulate/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasModulate/CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasModulate/CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasModulate/CanvasLayer/Control/MarginContainer/VBoxContainer/Control"]
+self_modulate = Color(0.76, 0, 0.101333, 0.658824)
+position = Vector2(-25, -12)
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("2_rw16y")
+
+[node name="Control2" type="Control" parent="CanvasModulate/CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasModulate/CanvasLayer/Control/MarginContainer/VBoxContainer/Control2"]
+self_modulate = Color(0.76, 0, 0.101333, 0.658824)
+position = Vector2(-26, -219)
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("1_f7i5y")
+
+[node name="Control3" type="Control" parent="CanvasModulate/CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasModulate/CanvasLayer/Control/MarginContainer/VBoxContainer/Control3"]
+self_modulate = Color(0.76, 0, 0.101333, 0.658824)
+position = Vector2(-208, 56)
+scale = Vector2(0.199219, 0.230469)
+texture_normal = ExtResource("4_jm75u")
+shape = SubResource("CircleShape2D_esvrl")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasModulate/CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasModulate/CanvasLayer/Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CanvasModulate/CanvasLayer/Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasModulate/CanvasLayer/Control/MarginContainer/VBoxContainer2/Control2"]
+self_modulate = Color(0.76, 0, 0.101333, 0.658824)
+position = Vector2(-192, -113)
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_am1q2")

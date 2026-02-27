@@ -1,0 +1,212 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3wuprf2rfd7s"]
+
+[ext_resource type="Script" uid="uid://deksyeqc7x75e" path="res://upgrade_ui.gd" id="1_2bm20"]
+[ext_resource type="Shader" uid="uid://bq2wg11h4deav" path="res://neon_glow.gdshader" id="2_mrk1f"]
+[ext_resource type="Texture2D" uid="uid://bl34wffdn3utf" path="res://icon.svg" id="2_o8ha3"]
+[ext_resource type="Script" uid="uid://biyo451cfm67b" path="res://upgrade_button.gd" id="2_tmaid"]
+[ext_resource type="Script" uid="uid://bm6sdqhqkfmk0" path="res://powerUpLibrary.gd" id="2_vapt6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_srpta"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2khn"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mup4x"]
+shader = ExtResource("2_mrk1f")
+shader_parameter/neon_color = Color(0.2, 1.5, 2, 1)
+shader_parameter/border_width = 0.05
+shader_parameter/glow_softness = 0.02
+shader_parameter/aspect_ratio = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0o7ui"]
+shader = ExtResource("2_mrk1f")
+shader_parameter/neon_color = Color(0.2, 1.5, 2, 1)
+shader_parameter/border_width = 0.05
+shader_parameter/glow_softness = 0.02
+shader_parameter/aspect_ratio = Vector2(1, 1)
+
+[node name="UpgradePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2bm20")
+powerups = ExtResource("2_vapt6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MainMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Label" type="Label" parent="MainMargin/VBoxContainer"]
+layout_mode = 2
+text = "MELEE TO SELECT ONE MILESTONE OF CHOICE
+"
+label_settings = SubResource("LabelSettings_srpta")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsHBox" type="HBoxContainer" parent="MainMargin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="UpgradeButton1" type="Button" parent="MainMargin/VBoxContainer/ButtonsHBox"]
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_o2khn")
+keep_pressed_outside = true
+script = ExtResource("2_tmaid")
+
+[node name="Glow" type="ColorRect" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton1"]
+material = SubResource("ShaderMaterial_mup4x")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton1/Glow"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 81.0
+offset_right = 193.0
+offset_bottom = 333.0
+
+[node name="Icon" type="TextureRect" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton1/Glow"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_left = 59.0
+offset_top = 104.0
+offset_right = 199.0
+offset_bottom = 244.0
+texture = ExtResource("2_o8ha3")
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton1/Glow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.5
+offset_top = 280.0
+offset_right = -12.5
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "INCREASE ALL STATS BY 24 (NO NEED BTW)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Name" type="Label" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton1/Glow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.5
+offset_top = 32.0
+offset_right = -12.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Name
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="UpgradeButton2" type="Button" parent="MainMargin/VBoxContainer/ButtonsHBox"]
+custom_minimum_size = Vector2(250, 200)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_o2khn")
+script = ExtResource("2_tmaid")
+
+[node name="Glow" type="ColorRect" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton2"]
+material = SubResource("ShaderMaterial_0o7ui")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton2/Glow"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 81.0
+offset_right = 193.0
+offset_bottom = 333.0
+
+[node name="Icon" type="TextureRect" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton2/Glow"]
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_left = 59.0
+offset_top = 104.0
+offset_right = 199.0
+offset_bottom = 244.0
+texture = ExtResource("2_o8ha3")
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton2/Glow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.5
+offset_top = 280.0
+offset_right = -12.5
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "INCREASE ALL STATS BY 24 (NO NEED BTW)"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Name" type="Label" parent="MainMargin/VBoxContainer/ButtonsHBox/UpgradeButton2/Glow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.5
+offset_top = 28.0
+offset_right = -13.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Name
+"
+horizontal_alignment = 1
+autowrap_mode = 3

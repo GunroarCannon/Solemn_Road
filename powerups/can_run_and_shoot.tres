@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=2 format=3 uid="uid://j0k4ok3vd6dr"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_2f1et"]
+
+[resource]
+script = ExtResource("1_2f1et")
+name = ""
+description = ""
+set_key = ""
+set_value = false
+add_key = ""
+add_value = 0.0

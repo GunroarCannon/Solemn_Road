@@ -1,0 +1,141 @@
+[gd_scene load_steps=8 format=3 uid="uid://umcc0k3kbt1g"]
+
+[ext_resource type="Texture2D" uid="uid://5ov56ntf7n63" path="res://assets/ui/Gemini_Generated_Image_ri5qkmri5qkmri5q.png" id="1_gnoxu"]
+[ext_resource type="FontFile" uid="uid://u6kboufq8uty" path="res://assets/fonts/28 Days Later.ttf" id="2_m118y"]
+[ext_resource type="Theme" uid="uid://cdpsmjkdj4uwc" path="res://button_theme.tres" id="3_p5t18"]
+[ext_resource type="Texture2D" uid="uid://yh0h7ow1ysim" path="res://assets/icons/guns/skoll/winchester-rifle.png" id="4_l2n3j"]
+[ext_resource type="Texture2D" uid="uid://cjj8ahxcl5lyd" path="res://assets/icons/shoes/quoting/lost-limb.png" id="5_r5se2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_csqad"]
+font = ExtResource("2_m118y")
+font_size = 160
+font_color = Color(0.75, 0.015, 0.015, 1)
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.65098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gcjc"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Playscreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -672.0
+offset_top = -384.0
+offset_right = 672.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gnoxu")
+expand_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="Panel/MarginContainer2"]
+layout_mode = 2
+text = "SOLemn
+Road"
+label_settings = SubResource("LabelSettings_csqad")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -590.0
+offset_top = -330.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_p5t18")
+text = "NORMAL PLAY
+"
+icon = ExtResource("4_l2n3j")
+alignment = 0
+expand_icon = true
+
+[node name="Button2" type="Button" parent="Panel/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_p5t18")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3gcjc")
+text = "?"
+icon = ExtResource("4_l2n3j")
+alignment = 0
+expand_icon = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_p5t18")
+text = "HARDCORE PLAY"
+icon = ExtResource("4_l2n3j")
+alignment = 0
+expand_icon = true
+
+[node name="Button2" type="Button" parent="Panel/MarginContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_p5t18")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3gcjc")
+text = "?"
+icon = ExtResource("4_l2n3j")
+alignment = 0
+expand_icon = true
+
+[node name="Space" type="Button" parent="Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_p5t18")
+text = "
+"
+alignment = 0
+expand_icon = true
+
+[node name="Exit" type="Button" parent="Panel/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("3_p5t18")
+text = "BACK
+"
+icon = ExtResource("5_r5se2")
+alignment = 0
+expand_icon = true

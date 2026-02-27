@@ -1,0 +1,210 @@
+[gd_scene load_steps=15 format=3 uid="uid://cngel6lb23xi1"]
+
+[ext_resource type="Script" uid="uid://m8jcct45db5j" path="res://play_screen.gd" id="1_hlo5o"]
+[ext_resource type="Texture2D" uid="uid://m67n7dc01nig" path="res://assets/icons/fire/lorc/burning-dot.png" id="2_htild"]
+[ext_resource type="Theme" uid="uid://cdpsmjkdj4uwc" path="res://button_theme.tres" id="2_wvdin"]
+[ext_resource type="Texture2D" uid="uid://vptsje6dmsda" path="res://assets/ui/road_blurry.png" id="2_xykd6"]
+[ext_resource type="Texture2D" uid="uid://yh0h7ow1ysim" path="res://assets/icons/guns/skoll/winchester-rifle.png" id="3_3o57l"]
+[ext_resource type="Texture2D" uid="uid://i7uo56jtpb5l" path="res://assets/icons/fire/skoll/burning-skull.png" id="4_oq2nj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iaips"]
+texture = ExtResource("2_xykd6")
+
+[sub_resource type="Gradient" id="Gradient_rju88"]
+offsets = PackedFloat32Array(0, 0.00956938, 0.971292, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.1178, 0.4526, 0.62, 0.611765, 0.97, 0.97, 0.97, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5nklw"]
+gradient = SubResource("Gradient_rju88")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_q3sfw"]
+diffuse_texture = SubResource("GradientTexture2D_5nklw")
+specular_texture = ExtResource("2_htild")
+specular_color = Color(0.744914, 0.297033, 0.46252, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_5yy74"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ym3r0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80t2v"]
+skew = Vector2(40, 40)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ypx1"]
+content_margin_left = 1.0
+content_margin_top = 4.0
+content_margin_right = 100.0
+content_margin_bottom = 1.0
+bg_color = Color(0.341176, 0.0509804, 0.0745098, 1)
+skew = Vector2(2, 0)
+border_width_left = 8
+border_color = Color(0.336266, 0.0406391, 0.0675115, 1)
+expand_margin_top = 12.0
+expand_margin_right = 1.0
+
+[node name="PlayScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hlo5o")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iaips")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_q3sfw")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+
+[node name="PlayContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/MarginContainer/PlayContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/PlayContainer/MarginContainer3"]
+layout_mode = 2
+theme = ExtResource("2_wvdin")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Select a mode of Play"
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/PlayContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/MarginContainer/PlayContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+
+[node name="NormalButton" type="Button" parent="Panel/MarginContainer/PlayContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme = ExtResource("2_wvdin")
+theme_override_colors/font_hover_pressed_color = Color(0.73, 0.73, 0.73, 1)
+theme_override_colors/font_hover_color = Color(0.440222, 0.161841, 0.149418, 1)
+theme_override_colors/icon_normal_color = Color(0.698039, 0.741176, 0.764706, 1)
+theme_override_colors/font_color = Color(0.557667, 0.207911, 0.194002, 1)
+theme_override_colors/font_focus_color = Color(0.439216, 0.160784, 0.14902, 1)
+text = "Normal
+"
+icon = ExtResource("3_3o57l")
+alignment = 0
+expand_icon = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer/PlayContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+
+[node name="StakeButton" type="Button" parent="Panel/MarginContainer/PlayContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_wvdin")
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.254839, 0.0370967, 0.0585454, 1)
+theme_override_colors/icon_normal_color = Color(0.698039, 0.741176, 0.764706, 1)
+theme_override_colors/font_color = Color(0.34, 0.051, 0.0750834, 1)
+theme_override_colors/font_focus_color = Color(0.254902, 0.0352941, 0.0588235, 1)
+text = "Hardcore stakers"
+icon = ExtResource("4_oq2nj")
+alignment = 0
+expand_icon = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="Panel/MarginContainer/PlayContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="SprintBar" type="HSlider" parent="Panel/MarginContainer/PlayContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_icons/grabber = SubResource("ImageTexture_5yy74")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_ym3r0")
+theme_override_styles/slider = SubResource("StyleBoxFlat_80t2v")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1ypx1")
+value = 100.0
+editable = false
+scrollable = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/PlayContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="DescriptionLabel" type="Label" parent="Panel/MarginContainer/PlayContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_wvdin")
+theme_override_colors/font_color = Color(0.03, 0.03, 0.03, 1)
+theme_override_font_sizes/font_size = 55
+text = "Do a bunch of stuff as a rascal.
+It's the real rule of law
+
+"
+horizontal_alignment = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/MarginContainer/PlayContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="PlayButton" type="Button" parent="Panel/MarginContainer/PlayContainer/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_wvdin")
+theme_override_colors/font_hover_pressed_color = Color(0.384314, 0.447059, 0.509804, 1)
+theme_override_colors/font_hover_color = Color(0.384314, 0.447059, 0.509804, 1)
+theme_override_colors/font_color = Color(0.384314, 0.447059, 0.509804, 1)
+theme_override_colors/font_focus_color = Color(0.384314, 0.447059, 0.509804, 1)
+theme_override_colors/font_pressed_color = Color(0.384314, 0.447059, 0.509804, 1)
+theme_override_font_sizes/font_size = 190
+text = "PLAY
+"
+alignment = 2
+
+[node name="Button" type="Button" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 36.0
+offset_top = 28.0
+offset_right = 156.0
+offset_bottom = 85.0
+theme = ExtResource("2_wvdin")
+text = "Back
+"
+
+[connection signal="button_down" from="Panel/MarginContainer/PlayContainer/HBoxContainer/MarginContainer3/NormalButton" to="." method="_on_normal_button_button_down"]
+[connection signal="button_down" from="Panel/MarginContainer/PlayContainer/HBoxContainer/MarginContainer2/StakeButton" to="." method="_on_stake_button_button_down"]
+[connection signal="button_up" from="Panel/MarginContainer/PlayContainer/MarginContainer2/PlayButton" to="." method="_on_play_button_button_up"]

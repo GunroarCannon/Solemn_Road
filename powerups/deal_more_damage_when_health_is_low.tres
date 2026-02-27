@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://bfragmiksgrur"]
+
+[ext_resource type="Texture2D" uid="uid://cyrrs4erd4wgu" path="res://assets/icons/fire/lorc/fire-silhouette.png" id="1_4du3c"]
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_f7kyl"]
+
+[resource]
+script = ExtResource("1_f7kyl")
+name = "Beserker Blood"
+description = "Deal more damage when health is low"
+icon = ExtResource("1_4du3c")
+set_key = "beserker_damage_is_on"
+set_value = true
+add_key = ""
+add_value = 0.0

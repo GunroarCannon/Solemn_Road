@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://6m6lb7hfkj1f"]
+
+[ext_resource type="Script" uid="uid://bbdiqqjv8ghly" path="res://mutant_monster.gd" id="1_gplq5"]
+[ext_resource type="PackedScene" uid="uid://dana5i7u87vgk" path="res://assets/monsters/goose.glb" id="2_av0k7"]
+[ext_resource type="PackedScene" uid="uid://cmaqk3y85rwpd" path="res://mutant.tscn" id="3_2is5g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qyrk7"]
+radius = 0.43011
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpvf6"]
+size = Vector3(2, 2, 1.5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_46sv8"]
+radius = 0.277857
+height = 1.16154
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3t0i8"]
+height = 0.038002
+radius = 0.318536
+
+[node name="Mutant" type="CharacterBody3D" groups=["Target"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_gplq5")
+
+[node name="PatrolRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.499592, 0.866261, 0, -0.866261, 0.499592, 0, 2.29033, 0)
+target_position = Vector3(0, -11, 0)
+collision_mask = 3
+debug_shape_custom_color = Color(0.882353, 0.0627451, 0.909804, 1)
+debug_shape_thickness = 5
+
+[node name="crawler" type="Node3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2.19368, 0)
+
+[node name="Area3D" type="Area3D" parent="crawler"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.94611, 5.5227)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crawler/Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -1.37905, -0.45033)
+shape = SubResource("SphereShape3D_qyrk7")
+
+[node name="MeleeBox" type="ShapeCast3D" parent="crawler"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.18187, 11.3761)
+shape = SubResource("BoxShape3D_mpvf6")
+collision_mask = 3
+
+[node name="Sketchfab_Scene" parent="crawler" instance=ExtResource("2_av0k7")]
+visible = false
+
+[node name="body" parent="crawler" instance=ExtResource("3_2is5g")]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 1.76472, -18.9574, 0.768819)
+
+[node name="BodyCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1348, 1.42963, 0.288875)
+shape = SubResource("CapsuleShape3D_46sv8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0363275, 0.484472, 0.392145)
+shape = SubResource("CylinderShape3D_3t0i8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[connection signal="body_entered" from="crawler/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="crawler/Area3D" to="." method="_on_area_3d_body_exited"]

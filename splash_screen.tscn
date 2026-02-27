@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfy2i6iv3to43"]
+
+[ext_resource type="Script" uid="uid://vcp1r1nauj5j" path="res://addons/splash_screen_wizard/splash_screen.gd" id="1_o7rdx"]
+[ext_resource type="Script" uid="uid://sfmi7s6lfso3" path="res://addons/splash_screen_wizard/splash_screen_slide.gd" id="2_35ajh"]
+[ext_resource type="Script" uid="uid://cj1wjratdudap" path="res://addons/splash_screen_wizard/transitions/slide_transition_fade.gd" id="3_31rh6"]
+[ext_resource type="Texture2D" uid="uid://dsrbi44fth1fu" path="res://assets/ui/hmmm_logo.png" id="5_imbcy"]
+
+[sub_resource type="Resource" id="Resource_5btw2"]
+script = ExtResource("3_31rh6")
+fade_type = 0
+duration = 1.0
+transition_type = 4
+
+[sub_resource type="Resource" id="Resource_m2apt"]
+script = ExtResource("3_31rh6")
+fade_type = 1
+duration = 0.5
+transition_type = 0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_frx6u"]
+diffuse_texture = ExtResource("5_imbcy")
+
+[node name="SplashScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o7rdx")
+delay_between_slides = 0.3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SplashScreenSlide" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_35ajh")
+transition_in = SubResource("Resource_5btw2")
+transition_out = SubResource("Resource_m2apt")
+continue_after_duration = false
+skippable = true
+
+[node name="ColorRect" type="ColorRect" parent="SplashScreenSlide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="SplashScreenSlide"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="TextureRect" type="TextureRect" parent="SplashScreenSlide/MarginContainer"]
+layout_mode = 2
+texture = SubResource("CanvasTexture_frx6u")
+expand_mode = 3
+stretch_mode = 4
+
+[connection signal="finished" from="." to="." method="_on_finished"]
+[connection signal="finished" from="SplashScreenSlide" to="." method="_on_finished"]
+[connection signal="slide_finished" from="SplashScreenSlide" to="." method="_on_finished"]

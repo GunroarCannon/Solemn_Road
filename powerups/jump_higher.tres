@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://cvmvjh5fpsyq7"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_wyil6"]
+[ext_resource type="Texture2D" uid="uid://cfvlx4hx4p0o" path="res://assets/icons/dna2.png" id="1_y0usv"]
+
+[resource]
+script = ExtResource("1_wyil6")
+name = "Rabit DNA"
+description = "Jump higher."
+icon = ExtResource("1_y0usv")
+set_key = ""
+set_value = false
+add_key = "jump_height_multiplier"
+add_value = 0.4

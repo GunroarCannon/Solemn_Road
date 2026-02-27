@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://7ksyiknkeu2j"]
+
+[ext_resource type="Texture2D" uid="uid://bjbrmjq7v7ie2" path="res://assets/icons/shoes/caro-asercion/bunny-slippers.png" id="1_1d2hb"]
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_k33cw"]
+
+[resource]
+script = ExtResource("1_k33cw")
+name = "Rabbit Shoes"
+description = "Sprint faster,"
+icon = ExtResource("1_1d2hb")
+set_key = ""
+set_value = false
+add_key = "sprint_speed_multiplier"
+add_value = 1.5

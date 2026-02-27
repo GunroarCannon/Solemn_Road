@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://dh8gyg1mhwet"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_m7ew6"]
+[ext_resource type="Texture2D" uid="uid://djoxuo5vtxwwm" path="res://assets/icons/fire/lorc/salamander.png" id="1_tuv0t"]
+
+[resource]
+script = ExtResource("1_m7ew6")
+name = "Coward's Blood"
+description = "Move faster when health is low."
+icon = ExtResource("1_tuv0t")
+set_key = "beserk_speed_is_on"
+set_value = true
+add_key = ""
+add_value = 0.0

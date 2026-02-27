@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cdpsmjkdj4uwc"]
+
+[ext_resource type="FontFile" uid="uid://u6kboufq8uty" path="res://assets/fonts/28 Days Later.ttf" id="1_itb3s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro84j"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_y1yph"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqrfy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y3vlr"]
+
+[resource]
+default_font = ExtResource("1_itb3s")
+default_font_size = 60
+Button/colors/font_color = Color(0.384314, 0.447059, 0.509804, 1)
+Button/colors/icon_hover_color = Color(0.73, 0.3066, 0.3066, 1)
+Button/colors/icon_hover_pressed_color = Color(0.55, 0.143, 0.143, 1)
+Button/colors/icon_pressed_color = Color(0.74902, 0.0156863, 0.0156863, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_ro84j")
+Button/styles/focus = SubResource("StyleBoxLine_y1yph")
+Button/styles/hover = SubResource("StyleBoxEmpty_nqrfy")
+Button/styles/normal = SubResource("StyleBoxEmpty_y3vlr")
+Button/styles/pressed = null

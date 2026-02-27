@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://b1m7khk6ue1wn"]
+
+[ext_resource type="Script" uid="uid://d88dejv1iwxh" path="res://angel_follow.gd" id="1_56sne"]
+[ext_resource type="PackedScene" uid="uid://dana5i7u87vgk" path="res://assets/monsters/goose.glb" id="2_vhxjd"]
+[ext_resource type="PackedScene" uid="uid://dlxhqat16oxtv" path="res://assets/monsters/statue/angel_brass_version.glb" id="3_at0u4"]
+[ext_resource type="PackedScene" uid="uid://cq7qbij6in4a4" path="res://angel_sketchfab_scene.tscn" id="4_dibk1"]
+[ext_resource type="ArrayMesh" uid="uid://bs3knyysnl6ba" path="res://angel.tres" id="5_g767j"]
+[ext_resource type="Script" uid="uid://didj56d251v1j" path="res://addons/smash_the_mesh/stm_cached_instance.gd" id="5_k1rkk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qyrk7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpvf6"]
+size = Vector3(2, 2, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0cuy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_46sv8"]
+radius = 0.45
+height = 1.2385
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3t0i8"]
+height = 0.11
+radius = 0.423408
+
+[node name="Angel_Follower_Statue" type="CharacterBody3D" groups=["Target"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_56sne")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0266083, 1.82415, 0.173019)
+light_color = Color(0.857423, 0.382736, 0.92383, 1)
+light_energy = 10.0
+light_indirect_energy = 2.896
+light_volumetric_fog_energy = 1.08
+
+[node name="PatrolRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.499592, 0.866261, 0, -0.866261, 0.499592, 0, 2.29033, 0)
+target_position = Vector3(0, -11, 0)
+collision_mask = 3
+debug_shape_custom_color = Color(0.882353, 0.0627451, 0.909804, 1)
+debug_shape_thickness = 5
+
+[node name="crawler" type="Node3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 2.19368, 0)
+
+[node name="VisibiltyChecker" type="VisibleOnScreenNotifier3D" parent="crawler"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.0210349, -10.3318, 1.73019)
+aabb = AABB(-1.02568, -1.29583, -0.51879, 2.05136, 2.80945, 0.735823)
+
+[node name="Area3D" type="Area3D" parent="crawler"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 4.94611, 5.5227)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crawler/Area3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -1.37905, 0.966104)
+shape = SubResource("SphereShape3D_qyrk7")
+
+[node name="MeleeBox" type="ShapeCast3D" parent="crawler"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -2.236, 4.79423)
+shape = SubResource("BoxShape3D_mpvf6")
+collision_mask = 3
+
+[node name="Sketchfab_Scene" parent="crawler" instance=ExtResource("2_vhxjd")]
+visible = false
+
+[node name="Sketchfab_Scene23" parent="crawler" instance=ExtResource("3_at0u4")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -23.1942, 1.73983)
+visible = false
+
+[node name="Sketchfab_Scene2" parent="crawler" instance=ExtResource("4_dibk1")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -23.194, 1.74)
+visible = false
+
+[node name="STMCachedInstance3D" type="MeshInstance3D" parent="crawler"]
+transform = Transform3D(-0.149373, -2.39388e-07, -2.99628, -4.52988e-07, -3, 2.62268e-07, -2.99628, 4.65484e-07, 0.149373, -1.11993, -45.5553, -1.62013)
+mesh = ExtResource("5_g767j")
+script = ExtResource("5_k1rkk")
+cache_read = false
+cache_name = "9098301128917"
+original_mesh = ExtResource("5_g767j")
+chunk_inner_material = SubResource("StandardMaterial3D_m0cuy")
+phys_shape = 4
+phys_total_mass = 0.91
+
+[node name="BodyCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99628, 0.257509)
+shape = SubResource("CapsuleShape3D_46sv8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0266083, -0.0486954, -0.536127)
+shape = SubResource("CylinderShape3D_3t0i8")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[connection signal="screen_entered" from="crawler/VisibiltyChecker" to="." method="on_visible"]
+[connection signal="screen_exited" from="crawler/VisibiltyChecker" to="." method="on_not_visible"]
+[connection signal="body_entered" from="crawler/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="visibility_changed" from="CollisionShape3D" to="." method="_on_collision_shape_3d_visibility_changed"]

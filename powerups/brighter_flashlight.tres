@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://cvtef65q7xs6w"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_53l82"]
+[ext_resource type="Texture2D" uid="uid://dv56vsckhs4w2" path="res://assets/icons/batteries.png" id="1_sm2b5"]
+
+[resource]
+script = ExtResource("1_53l82")
+name = "New Batteries"
+description = "Gives you a brighter flashlight."
+icon = ExtResource("1_sm2b5")
+set_key = ""
+set_value = false
+add_key = "flashlight_energy_multiplier"
+add_value = 1.0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://hiiiy5mvqm3"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_0fjgu"]
+[ext_resource type="Texture2D" uid="uid://crfuspmfhv0ls" path="res://assets/icons/hands/delapouite/attached-shield.png" id="1_w7pdg"]
+
+[resource]
+script = ExtResource("1_0fjgu")
+name = "Strong Arms"
+description = "Melee attacks knock enemies further."
+icon = ExtResource("1_w7pdg")
+set_key = ""
+set_value = false
+add_key = "melee_knockback_multiplier"
+add_value = 0.5

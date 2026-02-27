@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwrjrla6hr2ld"]
+
+[ext_resource type="Script" uid="uid://bweei3vu7c85" path="res://spawner_mesh.gd" id="1_gctnv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0611w"]
+size = Vector3(4, 0.1, 10)
+
+[node name="SpawnerMesh" type="MeshInstance3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_0611w")
+script = ExtResource("1_gctnv")

@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://cotkmjj3dky8g"]
+
+[ext_resource type="PackedScene" uid="uid://d1t2btb8li5ap" path="res://assets/monsters/crawler/gooseblend.glb" id="1_4ad5a"]
+[ext_resource type="AnimationLibrary" uid="uid://dsg1v04rs2nk1" path="res://Zombie.res" id="2_v400d"]
+
+[sub_resource type="Animation" id="Animation_8iotk"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gnir0"]
+_data = {
+&"RESET": SubResource("Animation_8iotk")
+}
+
+[node name="gooseblend" instance=ExtResource("1_4ad5a")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0.678991, 4.61386, 0.235925)
+bones/0/rotation = Quaternion(0.110986, -0.161829, -0.0226183, 0.980297)
+bones/1/rotation = Quaternion(0.316206, 0.00225821, 0.0271906, 0.948298)
+bones/2/rotation = Quaternion(0.0650031, -0.00191081, 0.0163507, 0.997749)
+bones/3/rotation = Quaternion(0.0651062, -0.000915996, 0.0160334, 0.997749)
+bones/4/rotation = Quaternion(-0.353407, 0.0199864, -0.0298105, 0.934781)
+bones/5/rotation = Quaternion(-0.195972, 0.121985, -0.0351994, 0.972356)
+bones/7/rotation = Quaternion(0.643903, 0.357102, -0.527663, 0.423603)
+bones/8/rotation = Quaternion(0.266825, -0.271044, 0.280879, 0.881162)
+bones/9/rotation = Quaternion(0.0468825, -0.012218, 0.669009, 0.741673)
+bones/10/rotation = Quaternion(-0.226858, 0.168901, 0.0587587, 0.957369)
+bones/11/rotation = Quaternion(0.118119, -0.0898687, 0.0661251, 0.986711)
+bones/12/rotation = Quaternion(0.175857, -0.00440978, -0.0375216, 0.983691)
+bones/13/rotation = Quaternion(0.394578, -0.00577687, -0.103626, 0.912982)
+bones/15/rotation = Quaternion(0.660385, -0.368576, 0.456394, 0.468773)
+bones/16/rotation = Quaternion(0.315045, 0.328187, -0.319524, 0.83123)
+bones/17/rotation = Quaternion(0.044818, 0.0150622, -0.69486, 0.717589)
+bones/18/rotation = Quaternion(0.0320601, -0.216821, -0.0597884, 0.973851)
+bones/19/rotation = Quaternion(-0.183725, -0.00899309, 0.0160512, 0.982806)
+bones/20/rotation = Quaternion(0.371704, 0.006736, 0.0724887, 0.925493)
+bones/21/rotation = Quaternion(0.122292, 0.00148921, 0.0613205, 0.990597)
+bones/23/rotation = Quaternion(0.290481, -0.0725494, 0.896138, -0.327557)
+bones/24/rotation = Quaternion(-0.150075, 0.0160317, -0.0882251, 0.9846)
+bones/25/rotation = Quaternion(0.0164155, 0.352936, 0.93496, 0.0318741)
+bones/26/rotation = Quaternion(0.168764, 0.0166852, 0.0890773, 0.981481)
+bones/28/rotation = Quaternion(-0.388751, 0.289499, 0.855544, 0.181954)
+bones/29/rotation = Quaternion(0.468868, 0.00188999, 0.883264, 0.00193732)
+bones/30/rotation = Quaternion(-0.402524, -0.469477, -0.619114, 0.484008)
+bones/31/rotation = Quaternion(-0.0965062, 0.902072, -0.2696, -0.322906)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Armature" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_gnir0"),
+"Zombie": ExtResource("2_v400d")
+}

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://by0v4fcjas2i7"]
+
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_7f2b1"]
+[ext_resource type="Texture2D" uid="uid://ytilqse2c2ad" path="res://assets/icons/arm.png" id="1_qwjwm"]
+
+[resource]
+script = ExtResource("1_7f2b1")
+name = "Long Arms"
+description = "Increase range for your melee attacks."
+icon = ExtResource("1_qwjwm")
+set_key = ""
+set_value = false
+add_key = "melee_range_multiplier"
+add_value = 0.5

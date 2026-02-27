@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="PowerUp" load_steps=3 format=3 uid="uid://b0p5ib8g63814"]
+
+[ext_resource type="Texture2D" uid="uid://yh0h7ow1ysim" path="res://assets/icons/guns/skoll/winchester-rifle.png" id="1_ow6o8"]
+[ext_resource type="Script" uid="uid://cto0pfq6ftjy2" path="res://powerUpData.gd" id="1_t3s60"]
+
+[resource]
+script = ExtResource("1_t3s60")
+name = "Silencer"
+description = "Gun shots become quieter"
+icon = ExtResource("1_ow6o8")
+set_key = "quiet_shot"
+set_value = true
+add_key = ""
+add_value = 0.0
