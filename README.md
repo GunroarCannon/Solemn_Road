@@ -1,6 +1,6 @@
 # Solemn Road: The Solana Mobile Horror Experience
 
-![Title Screen](assets/ui/screenshot_title.png)
+![Title Screen](assets/screenshot_title.png)
 
 **Solemn Road** is a first-person survival horror game built natively for **Solana Mobile**. You are thrust into a horrifi--uh I mean wonderful, unpredictable "game show" where your living depends not only on your reflexes but on your strategic survivial. Escape the abominations, manage your ammo, and survive the solemn road ahead.
 
@@ -43,7 +43,7 @@ Solemn Road is built on a robust, cross-disciplinary tech stack designed for per
 * **Visceral Combat & Upgrades:** Smash crates, scavenge for ammo, choose dynamic powerups, and make every shot count.
 * **Immersive Audio & Polish:** From the heavy breathing of your character as their health drops, to the dynamic death camera that simulates a physical collapse, every detail is designed to keep your heart rate up.
 
-![Death Screen](assets/ui/screenshot_death.png)
+![Death Screen](assets/screenshot_death.png)
 *(Death: "Killed by a warden.")*
 
 ---
